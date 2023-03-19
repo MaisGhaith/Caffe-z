@@ -1,25 +1,38 @@
 
-let user = prompt("What is your name ?");
+let username = prompt("What is your name ?");
 
 
 let gender = prompt("What is your gender ?");
-if (gender == "Male" || gender == "male") {
-    alert("Hello Mr " + user + " !");
-} else if (gender == "Female" || gender == "female") {
-    alert("Hello Ms " + user + " !");
-} else {
-    alert("you are welcome");
+while (gender != "Male" && gender != "male" && gender != "female" && gender != "Female") {
+
+    gender = prompt("Please re-enter your gender !")
+
+
+
 }
 
-let order;
-let drink = prompt("What would you like to drink? hot or cold drink ? ");
-if (drink == "Hot" || drink == "hot") {
-    order = prompt("enter the name of drink you want :")
-} else if (drink == "Cold" || drink == "cold") {
-    order = prompt("enter the name of drink you want :")
+if (gender == "Male" || gender == "male") {
+    alert("Hello Mr " + username + " !");
+} else {
+    alert("Hello Ms " + username + " !")
+}
 
+
+
+let drinkName;
+let typeOfDrink = prompt("What would you like to drink? hot or cold drink ? ");
+if (typeOfDrink == "Hot" || typeOfDrink == "hot") {
+    drinkName = prompt("enter the name of drink you want :")
+} else if (typeOfDrink == "Cold" || typeOfDrink == "cold") {
+    drinkName = prompt("enter the name of drink you want :")
 }
 
 alert("your order is perparing right now")
 
-alert("Name : " + user + " , Your order : " + order)
+// alert("Name : " + username + " , Your order : " + order)
+let order = [username, gender, typeOfDrink, drinkName]
+
+for (let i = 0; i < order.length; i++) {
+    console.log(order[i])
+}
+
