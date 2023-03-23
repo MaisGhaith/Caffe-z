@@ -71,8 +71,6 @@
 // ul.style.listStyleType = "none"
 
 
-
-
 const form = document.getElementById("myForm");
 const details = document.getElementById("customerInfo");
 // const check = document.getElementById("hot").value;
@@ -85,30 +83,38 @@ form.addEventListener("submit", (event) => {
 
     let name = event.target.username.value;
     let age = event.target.Age.value;
-    let Hot = event.target.hotDrink.checked;
-    let Cold = event.target.coldDrink.checked;
+
+    let Hot = event.target.elements["drinkTemp1"].checked ? "hot" : ""
+    let Cold = event.target.elements["drinkTemp2"].checked ? "cold" : ""
+
+    // let Hot = event.target.hotDrink.checked;
+    // let Cold = event.target.coldDrink.checked;
     let drinkName = event.target.DrinkName.value;
 
     console.log(name)
     console.log(age)
     console.log(Hot)
+    console.log(Cold)
     console.log(drinkName)
 
     form.reset()
-    render(name, age, Hot, drinkName)
+    render(name, age, Hot, Cold, drinkName)
 });
 
 // console.log(form)
 
-function render(name, age, Hot, drinkName) {
+function render(name, age, Hot, Cold, drinkName) {
     let pName = document.createElement("p")
     pName.textContent = `${name}`;
 
     let pAge = document.createElement("p")
     pAge.textContent = `${age}`
 
-    let pType = document.createElement("p")
-    pType.textContent = `${Hot}`
+    let pHot = document.createElement("p")
+    pHot.textContent = `${Hot}`
+
+    let pCold = document.createElement("p")
+    pCold.textContent = `${Cold}`
 
     let pDrinkName = document.createElement("p")
     pDrinkName.textContent = `${drinkName}`
@@ -116,10 +122,7 @@ function render(name, age, Hot, drinkName) {
 
     details.appendChild(pName)
     details.appendChild(pAge)
-    details.appendChild(pType).innerHTML
+    details.appendChild(pHot)
+    details.appendChild(pCold)
     details.appendChild(pDrinkName)
-
-
-
 }
-
