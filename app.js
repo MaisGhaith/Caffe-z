@@ -121,4 +121,7 @@ function render(name, age, Hot, drinkName) {
 
 
 
+
+
+
 }
